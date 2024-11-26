@@ -1,0 +1,132 @@
+Inventory Management System
+The system will allow users to perform basic operations such as adding new items, viewing current inventory, updating item quantities, and removing items from inventory.
+
+Features: Add New Item: Adds a new item to the inventory with its name, price, and quantity.
+
+View Inventory: Displays the current items in the inventory with their names, prices, and quantities.
+
+Update Item Quantity: Allows updating the quantity of an existing item.
+
+Remove Item: Allows removing an item from the inventory.
+
+Search Item: Allows searching for an item by its name.
+
+Python Code for the Inventory Management System:
+
+
+[ ]
+class Item:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def __str__(self):
+        return f"Item: {self.name}, Price: {self.price}, Quantity: {self.quantity}"
+
+
+class Inventory:
+    def __init__(self):
+        self.items = {}
+
+    def add_item(self, name, price, quantity):
+        if name in self.items:
+            print(f"Item {name} already exists. Updating quantity...")
+            self.items[name].quantity += quantity
+        else:
+            self.items[name] = Item(name, price, quantity)
+            print(f"Item {name} added successfully.")
+
+    def view_inventory(self):
+        if not self.items:
+            print("No items in inventory.")
+        else:
+            for item in self.items.values():
+                print(item)
+
+    def update_quantity(self, name, quantity):
+        if name in self.items:
+            self.items[name].quantity = quantity
+            print(f"Quantity of {name} updated successfully.")
+        else:
+            print(f"Item {name} not found in inventory.")
+
+    def remove_item(self, name):
+        if name in self.items:
+            del self.items[name]
+            print(f"Item {name} removed successfully.")
+        else:
+            print(f"Item {name} not found in inventory.")
+
+    def search_item(self, name):
+        if name in self.items:
+            print(self.items[name])
+        else:
+            print(f"Item {name} not found in inventory.")
+
+
+def main():
+    inventory = Inventory()
+
+    while True:
+        print("\nInventory Management System")
+        print("1. Add Item")
+        print("2. View Inventory")
+        print("3. Update Item Quantity")
+        print("4. Remove Item")
+        print("5. Search Item")
+        print("6. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            name = input("Enter item name: ")
+            price = float(input("Enter item price: "))
+            quantity = int(input("Enter item quantity: "))
+            inventory.add_item(name, price, quantity)
+
+        elif choice == '2':
+            print("\nCurrent Inventory:")
+            inventory.view_inventory()
+
+        elif choice == '3':
+            name = input("Enter item name to update: ")
+            quantity = int(input("Enter new quantity: "))
+            inventory.update_quantity(name, quantity)
+
+        elif choice == '4':
+            name = input("Enter item name to remove: ")
+            inventory.remove_item(name)
+
+        elif choice == '5':
+            name = input("Enter item name to search: ")
+            inventory.search_item(name)
+
+        elif choice == '6':
+            print("Exiting the system.")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
+
+Explanation of the Code:
+
+Item Class: Represents an item in the inventory. Has attributes: name, price, and quantity. The str method is overridden to provide a formatted string for displaying the item.
+
+Inventory Class: Manages the inventory by storing items in a dictionary self.items where the key is the item’s name and the value is the Item object.
+
+Methods: add_item: Adds a new item to the inventory or updates the quantity of an existing item.
+
+view_inventory: Displays all items in the inventory.
+
+update_quantity: Updates the quantity of an existing item.
+
+remove_item: Removes an item from the inventory.
+
+search_item: Searches for an item by its name.
+
+main() Function: Provides a menu-driven interface for the user to interact with the system. Takes user input and calls the corresponding methods in the Inventory class to perform the desired operation.
