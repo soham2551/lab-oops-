@@ -1,0 +1,159 @@
+1. Check Prime Number
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+num = int(input("Enter a number: "))
+if is_prime(num):
+    print(f"{num} is a prime number.")
+else:
+    print(f"{num} is not a prime number.")  
+
+2. Check Palindrome Number
+
+num = int(input("Enter a number: "))
+if str(num) == str(num)[::-1]:
+    print(f"{num} is a palindrome.")
+else:
+    print(f"{num} is not a palindrome.")
+
+3. Find Grade Using Percentage
+
+percentage = float(input("Enter percentage: "))
+if percentage >= 90:
+    grade = "A"
+elif percentage >= 80:
+    grade = "B"
+elif percentage >= 70:
+    grade = "C"
+elif percentage >= 60:
+    grade = "D"
+else:
+    grade = "F"
+print(f"Grade: {grade}")
+
+4. Create Calculator
+
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+operator = input("Enter operator (+, -, *, /): ")
+
+if operator == '+':
+    print(f"Result: {num1 + num2}")
+elif operator == '-':
+    print(f"Result: {num1 - num2}")
+elif operator == '*':
+    print(f"Result: {num1 * num2}")
+elif operator == '/':
+    if num2 != 0:
+        print(f"Result: {num1 / num2}")
+    else:
+        print("Error: Division by zero!")
+else:
+    print("Invalid operator.")
+
+5. Check Perfect Number
+
+num = int(input("Enter a number: "))
+sum_of_divisors = sum(i for i in range(1, num) if num % i == 0)
+if sum_of_divisors == num:
+    print(f"{num} is a perfect number.")
+else:
+    print(f"{num} is not a perfect number.")
+
+6. Sum of Digits of a Number
+
+num = int(input("Enter a number: "))
+sum_of_digits = sum(int(digit) for digit in str(num))
+print(f"Sum of digits: {sum_of_digits}")
+
+7. Reverse a Number
+
+num = int(input("Enter a number: "))
+reversed_num = int(str(num)[::-1])
+print(f"Reversed number: {reversed_num}")
+
+8. Check Strong Number
+
+from math import factorial
+
+def is_strong(num):
+    return num == sum(factorial(int(digit)) for digit in str(num))
+
+num = int(input("Enter a number: "))
+if is_strong(num):
+    print(f"{num} is a strong number.")
+else:
+    print(f"{num} is not a strong number.")
+
+9. Check Even or Odd
+
+num = int(input("Enter a number: "))
+if num % 2 == 0:
+    print(f"{num} is even.")
+else:
+    print(f"{num} is odd.")
+
+10. Find Factorial
+
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+num = int(input("Enter a number: "))
+print(f"Factorial of {num} is {factorial(num)}.")
+
+11. Find Factorial Up to 80
+
+from math import factorial
+
+num = 80
+print(f"Factorial of {num} is {factorial(num)}.")
+
+12. Fibonacci Series
+
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+
+n = int(input("Enter the number of terms: "))
+fibonacci(n)
+
+13. Sum of Fibonacci Series
+
+def sum_fibonacci(n):
+    a, b, total = 0, 1, 0
+    for _ in range(n):
+        total += a
+        a, b = b, a + b
+    return total
+
+n = int(input("Enter the number of terms: "))
+print(f"Sum of first {n} Fibonacci numbers is {sum_fibonacci(n)}.")
+
+14. Multiplication Table
+
+num = int(input("Enter a number: "))
+for i in range(1, 11):
+    print(f"{num} x {i} = {num * i}")
+
+15. Find LCM and GCD
+
+from math import gcd
+
+def lcm(x, y):
+    return abs(x * y) // gcd(x, y)
+
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+print(f"GCD of {num1} and {num2} is {gcd(num1, num2)}")
+print(f"LCM of {num1} and {num2} is {lcm(num1, num2)}")
