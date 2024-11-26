@@ -1,0 +1,56 @@
+1. Separate String into (i) Separated Values
+
+string = "This is a test string"
+separated_values = string.split()
+print("Separated values:", separated_values)
+
+2. Sort String Alphabetically
+
+string = input("Enter a string: ")
+sorted_string = "".join(sorted(string))
+print("Alphabetically sorted string:", sorted_string)
+
+3. Remove a Given Character from a String
+
+string = input("Enter a string: ")
+char_to_remove = input("Enter the character to remove: ")
+result = string.replace(char_to_remove, "")
+print("String after removing character:", result)
+
+4. Take an Input String and Reverse It
+
+string = input("Enter a string: ")
+reversed_string = string[::-1]
+print("Reversed string:", reversed_string)
+
+5. Check if a String Contains Only Digits
+
+string = input("Enter a string: ")
+if string.isdigit():
+    print("The string contains only digits.")
+else:
+    print("The string does not contain only digits.")
+
+6. Find the Number of Vowels in the String
+
+string = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+count = sum(1 for char in string if char in vowels)
+print("Number of vowels:", count)
+
+7. Check if the String is a Palindrome
+
+string = input("Enter a string: ")
+if string == string[::-1]:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+8. Check if Every Word in String Begins with a Capital Letter
+
+string = input("Enter a string: ")
+words = string.split()
+if all(word[0].isupper() for word in words):
+    print("Every word in the string begins with a capital letter.")
+else:
+    print("Not every word in the string begins with a capital letter.")
